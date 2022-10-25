@@ -5,7 +5,7 @@ import {
   getMessageByID,
   updateMessageByID,
   deleteMessageByID,
-} from "./controllers/studentController";
+} from "./controllers/messageController";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 
