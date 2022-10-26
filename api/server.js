@@ -64,3 +64,5 @@ app.post("/messages", express.json(), (req, res) => {
 });
 
 app.listen(3000);
+
+console.log(fetch);
