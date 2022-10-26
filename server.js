@@ -44,7 +44,7 @@ app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "./views/index.html"));
 });
 
-app.post("/", express.json(), (req, res) => {
+app.post("/message", express.json(), (req, res) => {
   console.log(req.body);
   fetch("http://localhost:3004/messages", {
     method: "POST",
@@ -64,6 +64,30 @@ app.post("/", express.json(), (req, res) => {
     });
 
   res.sendStatus(200);
+});
+
+app.get("/message", (req, res) => {
+  res.sendFile(path.join(__dirname, "./views/message.html"));
+});
+
+app.get("/message", express.json(), (req, res) => {
+  fetch("http://localhost:3004/messages", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => {
+      console.log(res);
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
+
+  res.send(req.body);
 });
 
 app.listen(3000);
