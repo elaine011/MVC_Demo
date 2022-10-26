@@ -6,14 +6,11 @@ const server = express();
 
 const jsonServer = require("json-server");
 
-const jsonServerPath = require(path);
+const path = require(path);
 
 app.use(express.json());
 
-server.use(
-  "/messages",
-  jsonServer.router(jsonServerPath.join(__dirname, "db.json"))
-);
+server.use("/messages", jsonServer.router(path.join(__dirname, "db.json")));
 
 // Establish routers
 app.get("/", (req, res) => {
